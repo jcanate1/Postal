@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Erika Leiva 🌻</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#fff8e8;font-family:Georgia,serif}.card{width:min(94vw,440px);background:#fff;border-radius:28px;padding:30px 22px 24px;text-align:center;box-shadow:0 15px 45px #0002}h1{color:#594331;margin:0 0 8px;font-size:30px}#mensaje{height:145px;display:flex;align-items:center;justify-content:center;font-size:21px;line-height:1.5;position:relative;z-index:20}.fade{animation:fade .55s ease}@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}.scene{height:330px;position:relative;cursor:pointer;touch-action:manipulation}.pot{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:170px;height:108px;background:linear-gradient(#d77a4c,#c6633d);border-radius:0 0 45px 45px}.wood{position:absolute;top:-15px;left:-10px;width:190px;height:31px;background:#bd6040;border-radius:16px;box-shadow:0 5px 8px #0002;z-index:10}.wood:after{content:"";position:absolute;left:35px;right:35px;top:8px;height:7px;border-radius:50%;background:#984d37aa}.stem{position:absolute;bottom:108px;left:50%;width:9px;height:0;background:#3b8a42;border-radius:8px;transform:translateX(-50%);transition:height .8s;z-index:2}.leaf{position:absolute;width:73px;height:31px;background:#3f9348;border-radius:100% 0;opacity:0;transition:opacity .5s;z-index:3}.l1{left:calc(50% - 72px);bottom:140px;transform:rotate(12deg)}.l2{left:calc(50% + 1px);bottom:180px;transform:scaleX(-1) rotate(12deg)}.l3{left:calc(50% - 72px);bottom:220px;transform:rotate(12deg)}.l4{left:calc(50% + 1px);bottom:255px;transform:scaleX(-1) rotate(12deg)}.flower{position:absolute;left:50%;bottom:290px;width:115px;height:115px;transform:translateX(-50%) scale(.1);opacity:0;transition:all 1s;z-index:4}.petal{position:absolute;left:30px;top:30px;width:55px;height:55px;background:#f2c52e;border-radius:55% 45%}.p1{transform:translateY(-28px)}.p2{transform:rotate(45deg) translateY(-28px)}.p3{transform:rotate(90deg) translateY(-28px)}.p4{transform:rotate(135deg) translateY(-28px)}.p5{transform:rotate(180deg) translateY(-28px)}.p6{transform:rotate(225deg) translateY(-28px)}.p7{transform:rotate(270deg) translateY(-28px)}.p8{transform:rotate(315deg) translateY(-28px)}.center{position:absolute;left:36px;top:36px;width:43px;height:43px;border-radius:50%;background:#80502b}#hint{font:14px Arial,sans-serif;color:#777}.final{
+font-size:27px;font-weight:bold;color:#9b7130;line-height:1.25;
+background:rgba(255,255,255,.94);padding:14px 20px;border-radius:18px;
+box-shadow:0 5px 18px #0002;position:relative;z-index:20
+}
+.att{display:block;font-size:16px;font-weight:normal;color:#80654b;margin-top:8px;font-style:italic}
+</style>
+</head>
+<body>
+<main class="card">
+<h1>Te amo porque:</h1>
+<div id="mensaje"><div class="fade">Toca la madera de la maceta 🌱</div></div>
+<div class="scene" id="scene" aria-label="Toca la madera">
+<div id="stem" class="stem"></div><div id="leaf1" class="leaf l1"></div><div id="leaf2" class="leaf l2"></div><div id="leaf3" class="leaf l3"></div><div id="leaf4" class="leaf l4"></div>
+<div id="flower" class="flower"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div><div class="center"></div></div>
+<div class="pot"><div class="wood"></div></div></div>
+<div id="hint">Cada toque revela algo nuevo 💛</div>
+</main>
+<script>
+const messages=["Sos hermosa 💛","Sos divertida 😊","Sos mi hogar 🏡","Sos auténtica ✨","Sos inspiradora 🌻","Pero sobre todo te amo…"];
+let step=0;const scene=document.getElementById('scene'),message=document.getElementById('mensaje'),stem=document.getElementById('stem'),flower=document.getElementById('flower'),hint=document.getElementById('hint'),leaves=[1,2,3,4].map(n=>document.getElementById('leaf'+n));
+function advance(){if(step>=6)return;message.innerHTML='<div class="fade">'+messages[step]+'</div>';stem.style.height=(40+step*43)+'px';if(step>=1)leaves[0].style.opacity=1;if(step>=2)leaves[1].style.opacity=1;if(step>=3)leaves[2].style.opacity=1;if(step>=4)leaves[3].style.opacity=1;if(step===5){flower.style.opacity=1;flower.style.transform='translateX(-50%) scale(1)';hint.textContent='La flor está floreciendo… 🌻';setTimeout(()=>{message.innerHTML='<div class="final fade"><b>Erika Leiva</b><br>¡Eres genial! 💛🌻<span class="att">Att: Jonathan Cañate</span></div>';hint.textContent='Esta flor es para ti';},900)}else hint.textContent='Toca nuevamente la madera 🌱';step++}
+scene.addEventListener('click',advance);
+</script>
+</body>
+</html>
